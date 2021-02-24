@@ -1,0 +1,23 @@
+description: P2p контекст
+required:
+    - cashInfo
+    - bankCard
+    - transferId
+    - identityId
+discriminator:
+    propertyName: status
+properties:
+    payerInfo:
+      $ref: './UserInfo.yaml'
+    cashInfo:
+      $ref: './CashInfo.yaml'
+    sender:
+      $ref: './BankCard.yaml'
+    receiver:
+      $ref: './BankCard.yaml'
+    transferId:
+      description: Идентификатор перевода
+      type: string
+    identityId:
+      description: Идентификатор мерчанта
+      type: string

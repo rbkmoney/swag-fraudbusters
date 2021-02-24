@@ -1,0 +1,20 @@
+post:
+  summary: Проверка платежа
+  operationId: inspectPayment
+  tags:
+    - inspector
+  requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/PaymentInspectRequest.yaml'
+  responses:
+      '201':
+        description: Пользователь вступил в организацию
+        content:
+          application/json:
+            schema:
+              $ref: '../components/responses/RiskScoreResult.yaml'
+      '400':
+        $ref: '../components/responses/BadRequest.yaml'
+

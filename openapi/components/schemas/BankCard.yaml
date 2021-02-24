@@ -1,0 +1,29 @@
+description: Информацмя по банковской карте
+required:
+  - cardToken
+  - lastDigist
+  - bin
+properties:
+  bin:
+    description: bin карты
+    type: string
+    minLength: 3
+    maxLength: 20
+  lastDigist:
+    description: Последнии цифры карты
+    type: string
+    minLength: 3
+    maxLength: 20
+  binCountryCode:
+    description: Страна банковской карты
+    type: string
+    minLength: 3
+    maxLength: 3
+  cardToken:
+    description: Токен идентифицирующий карту
+    type: string
+    minLength: 1
+    maxLength: 200
+  bankName:
+    description: Название банка
+    type: string

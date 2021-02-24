@@ -1,0 +1,30 @@
+openapi: 3.0.3
+info:
+  version: 1.0.0
+  title: RBKmoney Fraudbusters API
+  description:
+    $ref: './docs/api.md'
+  termsOfService: 'https://rbk.money/'
+  contact:
+    name: RBKmoney Support Team
+    email: support@rbk.money
+    url: 'https://developer.rbk.money'
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+security:
+  - bearer: []
+tags:
+  - name: inspector
+    x-displayName: Инспектор
+  - name: error-codes
+    x-displayName: Коды ошибок
+    description:
+      $ref: './docs/error-codes.md'
+paths:
+  /fraudbuters/inspectPayment:
+    $ref: ./paths/inspectPayment.yaml
+  /fraudbuters/inspectP2p:
+    $ref: ./paths/inspectP2p.yaml
+servers:
+  - url: 'https://api.rbk.money/org/v1'

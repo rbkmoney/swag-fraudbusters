@@ -1,0 +1,12 @@
+description: Платежная информация
+required:
+  - amount
+  - currency
+properties:
+  amount:
+    description: Сумма платежа
+    type: int64
+  currency:
+    description: Валюта платежа
+    type: string
+
