@@ -9,7 +9,7 @@ properties:
     type: string
     minLength: 3
     maxLength: 20
-  lastDigist:
+  lastDigits:
     description: Последнии цифры карты
     type: string
     minLength: 3
