@@ -1,7 +1,7 @@
 description: Информацмя по банковской карте
 required:
   - cardToken
-  - lastDigist
+  - lastDigits
   - bin
 properties:
   bin:
