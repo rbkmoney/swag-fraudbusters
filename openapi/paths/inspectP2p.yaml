@@ -1,0 +1,19 @@
+post:
+  summary: Проверка п2п перевода
+  operationId: inspectP2p
+  tags:
+    - inspector
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../components/schemas/P2pInspectRequest.yaml'
+  responses:
+    '201':
+      description: Пользователь вступил в организацию
+      content:
+        application/json:
+          schema:
+            $ref: '../components/responses/RiskScoreResult.yaml'
+    '400':
+      $ref: '../components/responses/BadRequest.yaml'
