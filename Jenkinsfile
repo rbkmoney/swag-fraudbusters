@@ -3,7 +3,7 @@
 
 build('swag-fraudbusters', 'docker-host') {
   checkoutRepo()
-  loadBuildUtils('build_utils')
+  loadBuildUtils('build-utils')
 
   def pipeDefault
   def withWsCache
