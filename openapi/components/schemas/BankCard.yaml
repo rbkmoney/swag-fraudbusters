@@ -15,10 +15,10 @@ properties:
     minLength: 3
     maxLength: 20
   binCountryCode:
-    description: Страна банковской карты
+    description: 'Страна карты, alpha-3 код по стандарту [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1)'
     type: string
-    minLength: 3
-    maxLength: 3
+    pattern: '^[A-Z]{3}$'
+    example: "RUS"
   cardToken:
     description: Токен идентифицирующий карту
     type: string
@@ -27,3 +27,5 @@ properties:
   bankName:
     description: Название банка
     type: string
+    minLength: 1
+    maxLength: 200
