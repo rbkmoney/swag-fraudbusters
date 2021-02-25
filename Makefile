@@ -1,23 +1,40 @@
-UTILS_PATH := build-utils
+SUBMODULES = build_utils
+SUBTARGETS = $(patsubst %,%/.git,$(SUBMODULES))
+
+UTILS_PATH := build_utils
 TEMPLATES_PATH := .
 
-SERVICE_NAME := swag-fraudbusters
-BUILD_IMAGE_TAG := 442c2c274c1d8e484e5213089906a4271641d95e
+# Name of the service
+SERVICE_NAME := swag-analytics
+# Service image default tag
+SERVICE_IMAGE_TAG ?= $(shell git rev-parse HEAD)
+# The tag for service image to be pushed with
+SERVICE_IMAGE_PUSH_TAG ?= $(SERVICE_IMAGE_TAG)
 
-CALL_ANYWHERE := all install validate build java.compile java.deploy
+BUILD_IMAGE_TAG := bdc05544014b3475c8e0726d3b3d6fc81b09db96
+
+CALL_ANYWHERE := \
+	all submodules init build java.compile java.deploy
+
 CALL_W_CONTAINER := $(CALL_ANYWHERE)
 
-all: validate
+all: compile
 
+-include $(UTILS_PATH)/make_lib/utils_image.mk
 -include $(UTILS_PATH)/make_lib/utils_container.mk
 
 .PHONY: $(CALL_W_CONTAINER)
 
-install:
-	npm install
+$(SUBTARGETS): %/.git: %
+	git submodule update --init $<
+	touch $@
 
-validate:
-	npm run validate
+submodules: $(SUBTARGETS)
+
+# NPM
+
+init:
+	npm install
 
 build:
 	npm run build
@@ -39,37 +56,43 @@ NUMBER_COMMITS := $(shell git rev-list --count HEAD)
 JAVA_PKG_VERSION := 1.$(NUMBER_COMMITS)-$(COMMIT_HASH)
 
 ifdef BRANCH_NAME
-ifeq "$(findstring epic,$(BRANCH_NAME))" "epic"
+ifeq "$(findstring epic,$(BRANCH_NAME))" "epic"Invoice
 JAVA_PKG_VERSION := $(JAVA_PKG_VERSION)-epic
 endif
 endif
 
 MVN = mvn -s $(SETTINGS_XML) -Dcommit.number="$(NUMBER_COMMITS)"
 
-java.swag.compile_client: java.settings
+java.swag.compile_client:
+	$(if $(SETTINGS_XML),,echo "SETTINGS_XML not defined" ; exit 1)
 	$(MVN) clean && \
 	$(MVN) compile -P="client"
 
-java.swag.deploy_client: java.settings
+java.swag.deploy_client:
+	$(if $(SETTINGS_XML),,echo "SETTINGS_XML not defined" ; exit 1)
 	$(MVN) clean && \
 	$(MVN) versions:set versions:commit -DnewVersion="$(JAVA_PKG_VERSION)-client" && \
 	$(MVN) deploy -P="client"
 
-java.swag.install_client: java.settings
+java.swag.install_client:
+	$(if $(SETTINGS_XML),,echo "SETTINGS_XML not defined" ; exit 1)
 	$(MVN) clean && \
     $(MVN) versions:set versions:commit -DnewVersion="$(JAVA_PKG_VERSION)-client" && \
     $(MVN) install -P="client"
 
-java.swag.compile_server: java.settings
+java.swag.compile_server:
+	$(if $(SETTINGS_XML),,echo "SETTINGS_XML not defined" ; exit 1)
 	$(MVN) clean && \
 	$(MVN) compile -P="server"
 
-java.swag.deploy_server: java.settings
+java.swag.deploy_server:
+	$(if $(SETTINGS_XML),,echo "SETTINGS_XML not defined" ; exit 1)
 	$(MVN) clean && \
 	$(MVN) versions:set versions:commit -DnewVersion="$(JAVA_PKG_VERSION)-server" && \
 	$(MVN) deploy -P="server"
 
-java.swag.install_server: java.settings
+java.swag.install_server:
+	$(if $(SETTINGS_XML),,echo "SETTINGS_XML not defined" ; exit 1)
 	$(MVN) clean && \
     $(MVN) versions:set versions:commit -DnewVersion="$(JAVA_PKG_VERSION)-server" && \
     $(MVN) install -P="server"
