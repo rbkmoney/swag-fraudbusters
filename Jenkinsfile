@@ -9,7 +9,7 @@ build('swag-fraudbusters', 'docker-host') {
   def withWsCache
   def gitUtils
   runStage('load pipeline') {
-    env.JENKINS_LIB = "build_utils/jenkins_lib"
+    env.JENKINS_LIB = "build-utils/jenkins_lib"
     pipeDefault = load("${env.JENKINS_LIB}/pipeDefault.groovy")
     withWsCache = load("${env.JENKINS_LIB}/withWsCache.groovy")
     gitUtils = load("${env.JENKINS_LIB}/gitUtils.groovy")
