@@ -5,7 +5,8 @@ required:
 properties:
   amount:
     description: Сумма платежа
-    type: int64
+    type: integer
+    format: int64
   currency:
     description: >-
       Валюта, символьный код согласно [ISO
