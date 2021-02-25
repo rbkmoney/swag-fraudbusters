@@ -6,33 +6,26 @@ build('swag-fraudbusters', 'docker-host') {
   loadBuildUtils()
 
   def pipeDefault
-  def withWsCache
   def gitUtils
   runStage('load pipeline') {
     env.JENKINS_LIB = "build_utils/jenkins_lib"
     pipeDefault = load("${env.JENKINS_LIB}/pipeDefault.groovy")
-    withWsCache = load("${env.JENKINS_LIB}/withWsCache.groovy")
     gitUtils = load("${env.JENKINS_LIB}/gitUtils.groovy")
   }
 
   pipeDefault() {
-
-    runStage('install-deps') {
-      withWsCache("node_modules") {
-        sh 'make wc_install'
+    runStage('init') {
+      withGithubSshCredentials {
+        sh 'make wc_init'
       }
     }
 
-    runStage('validate-spec') {
-      sh 'make wc_validate'
-    }
-
-    runStage('bundle') {
+    runStage('build') {
       sh 'make wc_build'
     }
 
     // Java
-    runStage('build java client & server') {
+    runStage('Build client & server') {
       withCredentials([[$class: 'FileBinding', credentialsId: 'java-maven-settings.xml', variable: 'SETTINGS_XML']]) {
         if (env.BRANCH_NAME == 'master' || env.BRANCH_NAME.startsWith('epic/')) {
           sh 'make SETTINGS_XML=${SETTINGS_XML} BRANCH_NAME=${BRANCH_NAME} java.swag.deploy_client'
@@ -43,16 +36,5 @@ build('swag-fraudbusters', 'docker-host') {
         }
       }
     }
-
-    // Release
-    if (env.BRANCH_NAME == 'master' || env.BRANCH_NAME.startsWith('epic/')) {
-      runStage('publish release bundle') {
-        dir("web_deploy") {
-          gitUtils.push(commitMsg: "Generated from commit: $COMMIT_ID \n\non $BRANCH_NAME in $RBK_REPO_URL\n\nChanges:\n$COMMIT_MSG",
-                        files: "*", branch: "release/$BRANCH_NAME", orphan: true)
-        }
-      }
-    }
-
   }
 }
