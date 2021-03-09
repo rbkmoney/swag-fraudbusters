@@ -37,3 +37,7 @@ properties:
   tokenMobileProvider:
     description: Провайдер предоставляющий токен для мобильного платежа
     type: string
+  createdAt:
+    description: Дата и время создания
+    type: string
+    format: date-time
