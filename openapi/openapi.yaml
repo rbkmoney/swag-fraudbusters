@@ -22,9 +22,9 @@ tags:
     description:
       $ref: './docs/error-codes.md'
 paths:
-  /fraudbuters/inspectPayment:
+  /fraudbusters/inspectPayment:
     $ref: ./paths/inspectPayment.yaml
-  /fraudbuters/inspectP2p:
+  /fraudbusters/inspectP2p:
     $ref: ./paths/inspectP2p.yaml
 servers:
   - url: 'https://api.rbk.money/org/v1'

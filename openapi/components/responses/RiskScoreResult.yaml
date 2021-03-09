@@ -3,6 +3,4 @@ required:
   - result
 properties:
   result:
-    type: array
-    items:
-      $ref: '../schemas/RiskScore.yaml'
+    $ref: '../schemas/RiskScore.yaml'
