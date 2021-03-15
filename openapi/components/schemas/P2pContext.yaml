@@ -21,3 +21,7 @@ properties:
     identityId:
       description: Идентификатор мерчанта
       type: string
+    createdAt:
+      description: Дата и время создания
+      type: string
+      format: date-time

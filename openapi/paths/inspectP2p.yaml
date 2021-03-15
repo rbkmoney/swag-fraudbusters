@@ -14,6 +14,6 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../components/responses/RiskScoreResult.yaml'
+            $ref: '../components/responses/RiskScoreListResult.yaml'
     '400':
       $ref: '../components/responses/BadRequest.yaml'
