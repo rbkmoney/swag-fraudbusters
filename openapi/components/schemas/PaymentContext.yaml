@@ -6,8 +6,6 @@ required:
   - invoiceId
   - paymentId
   - payerType
-discriminator:
-  propertyName: status
 properties:
   payerInfo:
     $ref: './UserInfo.yaml'

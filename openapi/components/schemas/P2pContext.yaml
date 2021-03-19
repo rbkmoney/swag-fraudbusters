@@ -4,8 +4,6 @@ required:
     - bankCard
     - transferId
     - identityId
-discriminator:
-    propertyName: status
 properties:
     payerInfo:
       $ref: './UserInfo.yaml'
