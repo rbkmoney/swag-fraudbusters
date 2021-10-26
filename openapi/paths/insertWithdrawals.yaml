@@ -10,7 +10,7 @@ post:
             $ref: '../components/requests/WithdrawalsRequest.yaml'
   responses:
       '201':
-        description: ВЫплаты успешно загружены
+        description: Выплаты успешно загружены
       '400':
         $ref: '../components/responses/BadResponse.yaml'
 

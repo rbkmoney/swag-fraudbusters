@@ -1,4 +1,4 @@
-description: Контекст платежа
+description: Информация по чарджбеку
 required:
   - cashInfo
   - bankCard
@@ -11,7 +11,7 @@ required:
   - chargebackCode
 properties:
   id:
-    description: Идентификатор чарджа
+    description: Идентификатор чарджбека
     type: string
   paymentId:
     description: Идентификатор платежа

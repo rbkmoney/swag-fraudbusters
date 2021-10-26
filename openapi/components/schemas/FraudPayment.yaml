@@ -5,7 +5,7 @@ required:
   - eventTime
 properties:
   payemntId:
-    description: Дата и время создания
+    description: Идентификатор платежа
     type: string
   eventTime:
     description: Дата и время создания

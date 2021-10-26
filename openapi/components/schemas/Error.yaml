@@ -1,4 +1,4 @@
-description: Платежная информация
+description: Информация по ошибке
 required:
   - errorCode
 properties:
