@@ -6,3 +6,5 @@ properties:
     type: string
   fingerprint:
     type: string
+  phone:
+    type: string

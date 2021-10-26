@@ -7,6 +7,9 @@ required:
   - paymentId
   - payerType
 properties:
+  id:
+    description: Идентификатор платежа
+    type: string
   payerInfo:
     $ref: './UserInfo.yaml'
   cashInfo:
@@ -15,6 +18,8 @@ properties:
     $ref: './BankCard.yaml'
   merchantInfo:
     $ref: './MerchantInfo.yaml'
+  providerInfo:
+    $ref: './ProviderInfo.yaml'
   mobile:
     description: Признак мобильного платежа
     type: boolean
@@ -23,12 +28,6 @@ properties:
     description: Признак рекурентного платежа
     type: boolean
     default: false
-  invoiceId:
-    description: Идентификатор счета
-    type: string
-  paymentId:
-    description: Идентификатор платежа
-    type: string
   payerType:
     description: Тип плательщика
     $ref: './PayerType.yaml'

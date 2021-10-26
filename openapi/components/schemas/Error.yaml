@@ -1,0 +1,11 @@
+description: Платежная информация
+required:
+  - errorCode
+properties:
+  errorCode:
+    description: Код ошибки
+    type: string
+  errorMessage:
+    description: Описание ошибки
+    type: string
+

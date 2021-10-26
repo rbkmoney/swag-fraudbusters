@@ -13,18 +13,28 @@ info:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
 security:
-  - bearer: []
+  - bearer: [ ]
 tags:
   - name: inspector
     x-displayName: Инспектор
+  - name: load-data
+    x-displayName: Загрузка исторических данных
   - name: error-codes
     x-displayName: Коды ошибок
     description:
       $ref: './docs/error-codes.md'
 paths:
-  /fraudbusters/inspectPayment:
+  /fraudbusters/inspect-payment:
     $ref: ./paths/inspectPayment.yaml
-  /fraudbusters/inspectP2p:
-    $ref: ./paths/inspectP2p.yaml
+  /fraudbusters/insert-chargebacks:
+    $ref: ./paths/insertChargebacks.yaml
+  /fraudbusters/insert-fraud-payments:
+    $ref: ./paths/insertFraudPayments.yaml
+  /fraudbusters/insert-payments:
+    $ref: ./paths/insertPayments.yaml
+  /fraudbusters/insert-refunds:
+    $ref: ./paths/insertRefunds.yaml
+  /fraudbusters/insert-withdrawals:
+    $ref: ./paths/insertWithdrawals.yaml
 servers:
   - url: 'https://api.rbk.money/org/v1'

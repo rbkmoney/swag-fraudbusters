@@ -1,0 +1,44 @@
+description: Контекст платежа
+required:
+  - cashInfo
+  - bankCard
+  - merchantInfo
+  - id
+  - paymentId
+  - payerType
+  - status
+  - category
+  - chargebackCode
+properties:
+  id:
+    description: Идентификатор чарджа
+    type: string
+  paymentId:
+    description: Идентификатор платежа
+    type: string
+  eventTime:
+    description: Дата и время создания
+    type: string
+    format: date-time
+  merchantInfo:
+    $ref: './MerchantInfo.yaml'
+  bankCard:
+    $ref: './BankCard.yaml'
+  cashInfo:
+    $ref: './CashInfo.yaml'
+  providerInfo:
+    $ref: './ProviderInfo.yaml'
+  payerInfo:
+    $ref: './UserInfo.yaml'
+  payerType:
+    description: Тип плательщика
+    $ref: './PayerType.yaml'
+  status:
+    description: Статус чарджа
+    $ref: './ChargebackStatus.yaml'
+  category:
+    description: Категория
+    $ref: './ChargebackCategory.yaml'
+  chargebackCode:
+    description: Тип плательщика
+    type: string

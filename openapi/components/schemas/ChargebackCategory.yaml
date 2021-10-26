@@ -1,0 +1,6 @@
+type: string
+enum:
+  - 'fraud'
+  - 'dispute'
+  - 'authorisation'
+  - 'processing_error'

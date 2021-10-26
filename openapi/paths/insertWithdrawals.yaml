@@ -1,0 +1,16 @@
+post:
+  summary: Загрузка результатов выплаты
+  operationId: insertWithdrawals
+  tags:
+    - load-data
+  requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: '../components/requests/WithdrawalsRequest.yaml'
+  responses:
+      '201':
+        description: ВЫплаты успешно загружены
+      '400':
+        $ref: '../components/responses/BadResponse.yaml'
+

@@ -7,14 +7,14 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../components/schemas/PaymentInspectRequest.yaml'
+            $ref: '../components/requests/PaymentInspectRequest.yaml'
   responses:
       '201':
-        description: Пользователь вступил в организацию
+        description: Результат проверки риска
         content:
           application/json:
             schema:
               $ref: '../components/responses/RiskScoreResult.yaml'
       '400':
-        $ref: '../components/responses/BadRequest.yaml'
+        $ref: '../components/responses/BadResponse.yaml'
 
