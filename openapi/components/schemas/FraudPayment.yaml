@@ -1,4 +1,4 @@
-description: Изменения по платежу
+description: Информация по мошеннической операции
 required:
   - paymentContext
   - paymentStatus
