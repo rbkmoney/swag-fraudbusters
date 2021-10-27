@@ -29,3 +29,9 @@ properties:
     type: string
     minLength: 1
     maxLength: 200
+  cardType:
+    description: Тип карты
+    $ref: './CardType.yaml'
+  paymentSystem:
+    description: Платежная система
+    type: string

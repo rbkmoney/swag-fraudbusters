@@ -3,4 +3,4 @@ required:
   - context
 properties:
   context:
-    $ref: './P2pContext.yaml'
+    $ref: '../schemas/PaymentContext.yaml'

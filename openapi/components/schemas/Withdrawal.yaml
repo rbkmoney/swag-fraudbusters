@@ -1,0 +1,29 @@
+description: Информация по выплате
+required:
+  - cashInfo
+  - bankCard
+  - id
+  - accountId
+  - status
+properties:
+  id:
+    description: Идентификатор выплаты
+    type: string
+  eventTime:
+    description: Дата и время создания
+    type: string
+    format: date-time
+  bankCard:
+    $ref: './BankCard.yaml'
+  cashInfo:
+    $ref: './CashInfo.yaml'
+  providerInfo:
+    $ref: './ProviderInfo.yaml'
+  accountId:
+    description: Номер счета
+    type: string
+  status:
+    description: Статус выплаты
+    $ref: './WithdrawalStatus.yaml'
+  error:
+    $ref: './Error.yaml'
