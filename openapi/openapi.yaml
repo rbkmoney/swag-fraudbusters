@@ -26,15 +26,15 @@ tags:
 paths:
   /fraudbusters/inspect-payment:
     $ref: ./paths/inspectPayment.yaml
-  /fraudbusters/insert-chargebacks:
-    $ref: ./paths/insertChargebacks.yaml
-  /fraudbusters/insert-fraud-payments:
-    $ref: ./paths/insertFraudPayments.yaml
-  /fraudbusters/insert-payments:
-    $ref: ./paths/insertPayments.yaml
-  /fraudbusters/insert-refunds:
-    $ref: ./paths/insertRefunds.yaml
-  /fraudbusters/insert-withdrawals:
-    $ref: ./paths/insertWithdrawals.yaml
+  /fraudbusters/chargebacks:
+    $ref: ./paths/chargebacks.yaml
+  /fraudbusters/fraud-payments:
+    $ref: ./paths/fraudPayments.yaml
+  /fraudbusters/payments:
+    $ref: ./paths/payments.yaml
+  /fraudbusters/refunds:
+    $ref: ./paths/refunds.yaml
+  /fraudbusters/withdrawals:
+    $ref: ./paths/withdrawals.yaml
 servers:
   - url: 'https://api.rbk.money/org/v1'
