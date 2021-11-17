@@ -1,4 +1,4 @@
-description: Информация по мошеннической операции
+description: Информация о счете
 required:
   - accountId
 properties:
