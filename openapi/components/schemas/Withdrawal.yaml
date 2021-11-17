@@ -19,9 +19,6 @@ properties:
     $ref: './CashInfo.yaml'
   providerInfo:
     $ref: './ProviderInfo.yaml'
-  accountId:
-    description: Номер счета
-    type: string
   status:
     description: Статус выплаты
     $ref: './WithdrawalStatus.yaml'

@@ -1,19 +1,10 @@
 description: Информация по мошеннической операции
 required:
-  - paymentContext
-  - paymentStatus
-  - eventTime
+  - accountId
 properties:
-  payemntId:
-    description: Идентификатор платежа
+  accountId:
+    description: Номер счета
     type: string
-  eventTime:
-    description: Дата и время создания
-    type: string
-    format: date-time
-  type:
-    description: Тип мошенничества
-    type: string
-  comment:
-    description: Комментарий
+  currency:
+    description: Валюта
     type: string
