@@ -15,13 +15,12 @@ properties:
     format: date-time
   bankCard:
     $ref: './BankCard.yaml'
+  account:
+    $ref: './Account.yaml'
   cashInfo:
     $ref: './CashInfo.yaml'
   providerInfo:
     $ref: './ProviderInfo.yaml'
-  accountId:
-    description: Номер счета
-    type: string
   status:
     description: Статус выплаты
     $ref: './WithdrawalStatus.yaml'
