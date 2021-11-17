@@ -1,11 +1,10 @@
-description: Информация по ошибке
+description: Информация о счете
 required:
-  - errorCode
+  - accountId
 properties:
-  errorCode:
-    description: Код ошибки
+  accountId:
+    description: Номер счета
     type: string
-  errorMessage:
-    description: Описание ошибки
+  currency:
+    description: Валюта
     type: string
-
